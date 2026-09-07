@@ -13,3 +13,11 @@ LLM that controls workflow
 An LLM agent runs tools in a loop to achieve a goal.
 
 Common features include memory, planning capabilities, autonomy, LLM orchestration, functionality via tools
+
+
+### HuggingFace
+- Models
+- Datasets
+- Spaces: apps, many built gradio
+
+
