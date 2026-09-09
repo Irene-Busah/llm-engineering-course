@@ -20,4 +20,12 @@ Common features include memory, planning capabilities, autonomy, LLM orchestrati
 - Datasets
 - Spaces: apps, many built gradio
 
+The two API levels of hugging face:
+1. Pipelines - higher level APIs to carry out standard tasks incredibly quickly
+2. Tokenizers & Models - lower level APIs to provide the most power and control
+
+
+**Training** is when you provide a model with data for it to adapt to get better at a task in the future.
+**Inference** is when you are working with a model that has already been trained
+
 
