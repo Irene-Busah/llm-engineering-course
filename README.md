@@ -29,3 +29,9 @@ The two API levels of hugging face:
 **Inference** is when you are working with a model that has already been trained
 
 
+### Tokenizers
+Maps between text and tokens for a particular model
+- Translates between text, tokens and token IDs with encode() and decode() medthods
+- Contains a vocab that can include special tokens to signal information to the LLM like start a prompt
+
+
