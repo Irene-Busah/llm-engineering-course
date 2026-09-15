@@ -35,3 +35,6 @@ Maps between text and tokens for a particular model
 - Contains a vocab that can include special tokens to signal information to the LLM like start a prompt
 
 
+### Quantization
+
+
