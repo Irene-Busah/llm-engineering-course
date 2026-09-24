@@ -61,3 +61,8 @@ Number of paramters ~ proportional to the number of training tokens
 
 4731100
 
+## How to evaluate the performance of a GenAI solution
+1. Model-centric or Technical metrics - Loss, perplexity, accuracy, precision, recall, AUC-ROC
+2. Business-centric or Outcome metrics - KPI, Customer satisfaction, benchmark comparisons, etc
+
+
