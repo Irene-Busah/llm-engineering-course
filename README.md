@@ -68,7 +68,13 @@ Number of paramters ~ proportional to the number of training tokens
 
 ## RAG - Encoding LLMs & Vector Embeddings
 **Auto-regressive LLMs** predicts a future token from the past.
-**Auto-encoding or vector embedding LLMs** produce output based on the full input
+**Auto-encoding or vector embedding models** produce output based on the full input. The encoder model turns text into a Vector Embedding, then stored in a vector database like Chroma. Examples, BERT, word2vec, OpenAI text embedding 3 small & large, gemini-embedding-001.
+
+Chat(Question) -> Code -> Encoding LLM(Vectorize) -> Code -> Vector Datastore(retrieve) -> Code -> LLM
+
+
+### LangChain
+Open source framework that provides a common framework for interfacing with manu LLMs
 
 
 
