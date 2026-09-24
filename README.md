@@ -35,6 +35,29 @@ Maps between text and tokens for a particular model
 - Contains a vocab that can include special tokens to signal information to the LLM like start a prompt
 
 
-### Quantization
+## What's the right LLM for the task at hand?
+1. Start with the basics - parameters, context length, pricing, etc. You want to compare features.
+2. Look at the results - benchmarks, leaderboards, arenas, etc
 
+
+### The Chinchilla scaling law
+Number of paramters ~ proportional to the number of training tokens
+
+### Benchmarks
+1, GPQA
+2. MMLU-PRO
+3, AIME
+4. LiveCode Bench
+5. MuSR
+6. HLE
+
+
+### 5 Steps Strategy
+1. Understand the business requirements
+2. Prepare
+3. Select the model you are going to use
+4. Customize
+5. Productionize
+
+4731100
 
