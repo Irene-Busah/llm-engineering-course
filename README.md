@@ -66,3 +66,9 @@ Number of paramters ~ proportional to the number of training tokens
 2. Business-centric or Outcome metrics - KPI, Customer satisfaction, benchmark comparisons, etc
 
 
+## RAG - Encoding LLMs & Vector Embeddings
+**Auto-regressive LLMs** predicts a future token from the past.
+**Auto-encoding or vector embedding LLMs** produce output based on the full input
+
+
+
