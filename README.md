@@ -77,4 +77,23 @@ Chat(Question) -> Code -> Encoding LLM(Vectorize) -> Code -> Vector Datastore(re
 Open source framework that provides a common framework for interfacing with manu LLMs
 
 
+## Evaluating a RAG Pipeline
+1. Curate a Test Set. Example questions set with the right context identified and reference answers provided
+2. Measure Retrieval - Mean Reciprocal Rank(MRR), Normalized Discount Cumulative Gain(nDCG), Recall@K, Precision@K, where is a number. How good is the RAG at retrieving content?
+    - Recall @ K. The Proportion of tests where relevant context was in the top K chunks
+    - Precision @ K. Proportion of the top K chunks that relevant
+3. Measure Answers. For example, use LLM-as-a-judge to score provided answers against criteria like accuracy, completeness and
+relevance
 
+
+## 10 RAG Advanced Techniques
+1. Chunking R&D - experimenting with chunking strategy
+2. Encoder R&D - select the best encoder model based on a test set
+3. Improve prompts - general content, the current date, relevant context and history
+4. Document pre-processing - use an LLM to make the chunks and/or text for encoding
+5. Query rewriting/preprocessing - use an LLM to convert the user's question to a RAG query
+6. Query expansion - use an LLM to turn the question into multiple RAG queries
+7. Re-ranking - use an LLM to sub-select from RAG results
+8. Hierarchical - use an LLM to summarize at multiple levels
+9. Graph RAG - retrieve content closely related to similar document
+10. Agentic RAG - use agents for retrieval, combining with memory and tools such as SQL
