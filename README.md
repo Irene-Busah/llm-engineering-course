@@ -86,7 +86,7 @@ Open source framework that provides a common framework for interfacing with manu
 relevance
 
 
-## 10 RAG Advanced Techniques
+### 10 RAG Advanced Techniques
 1. Chunking R&D - experimenting with chunking strategy
 2. Encoder R&D - select the best encoder model based on a test set
 3. Improve prompts - general content, the current date, relevant context and history
@@ -97,3 +97,21 @@ relevance
 8. Hierarchical - use an LLM to summarize at multiple levels
 9. Graph RAG - retrieve content closely related to similar document
 10. Agentic RAG - use agents for retrieval, combining with memory and tools such as SQL
+
+
+## Fine-tuning a Frontier Model
+Transfer Learning - taking a pretrained model as base, and use additional training data to fine-tune it for our task.
+
+## 5 Step Strategy for Selecting and Applying LLMs to Business
+**1. Understand:** This includes gathering business requirements for the task, identifying performance criteria(model and business centric metrics), understanding the data(quantity, quality & format), and determining non-functionals(cost constraints, scalability, latency)
+
+**2. Prepare:** The step include researching existing or non-LLM solutions(potential baseline model), comparing relevant LLMs and curating data(clean, preprocess & split)
+
+
+**3. Select:** Choose LLM(s), experiment, train and validate with curated data
+
+**4. Customize:** Four techniques to optimize the performance of the model - prompt, RAG, Agents(Inference time) & fine-tune (training time).
+
+**5. Productionize** 
+
+
