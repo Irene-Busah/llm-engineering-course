@@ -115,3 +115,22 @@ Transfer Learning - taking a pretrained model as base, and use additional traini
 **5. Productionize** 
 
 
+## The Four Steps Of Training
+1. Forward Pass: predict the output given inputs
+2. Loss Calculation: how different was the prediction to the ground truth
+3. Backward Pass: how should we tweak parameters to do better next time (the gradients)
+4. Optimization: update parameters a tiny step to do better next time
+
+
+## Three Stages to fine-tune with OpenAI
+1. Create training dataset in jsonl format and upload to OpenAI
+2. Run training - training loss and validation loss should decrease
+3. Evaluate result, tweak and repeat
+
+
+## LoRA - Low Rank Adaptor
+Llama 3.2 with 3 billion weights.
+1. Freeze the weights. We will not optimize them
+2. Select some layers to target, called "Target Modules"
+3. Create new "adaptor" matrices with lower dimensions, fewer parameters
+4. Apply these adaptors to the 'Target Modules' to adjust them - and these get trained
