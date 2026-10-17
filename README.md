@@ -115,7 +115,7 @@ Transfer Learning - taking a pretrained model as base, and use additional traini
 **5. Productionize** 
 
 
-## The Four Steps Of Training
+## The Four Steps Of Training Neural Network
 1. Forward Pass: predict the output given inputs
 2. Loss Calculation: how different was the prediction to the ground truth
 3. Backward Pass: how should we tweak parameters to do better next time (the gradients)
@@ -134,3 +134,16 @@ Llama 3.2 with 3 billion weights.
 2. Select some layers to target, called "Target Modules"
 3. Create new "adaptor" matrices with lower dimensions, fewer parameters
 4. Apply these adaptors to the 'Target Modules' to adjust them - and these get trained
+
+### 3 Essential Hyperparameters for LoRA Fine-tuning
+1. **r** - the rank or how many dimensions in the low-rank matrices. Start with 8, then double to 16, then 32 until diminishing returns.
+
+2. **alpha** - the scaling factor that multiplies the lower rank matrices. Rule of thumb: choose alpha twice the value of r.
+
+3. **Target Modules** - the layers of the neural network to be adapted. Rule of thumb: start by targeting the attention heads.
+
+
+### Quantization - the Q in QLoRA
+Intuition: keep the number of weights but reduce their precision. Model performance is worse, but the impact is surprisingly small.
+Instead of 32 bits, reduce to 8 bits, or even to 4 bits. We are quantizing the base model to 4-bits, not the LoRA matrice.
+
