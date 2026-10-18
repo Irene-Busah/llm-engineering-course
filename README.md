@@ -147,3 +147,21 @@ Llama 3.2 with 3 billion weights.
 Intuition: keep the number of weights but reduce their precision. Model performance is worse, but the impact is surprisingly small.
 Instead of 32 bits, reduce to 8 bits, or even to 4 bits. We are quantizing the base model to 4-bits, not the LoRA matrice.
 
+
+P.S: There are base models, chat/instruct variant models and reasoning models. The base models are good for problems that doesn't require instruct-response format.
+
+
+### Five Important Hyper-parameters for QLoRA
+1. Target Modules
+2. dimension, r
+3. Alpha
+4. Quantization
+5. Dropout - randomly, 10/20% of the matrix zero-out
+
+
+### Five Important Hyper-parameter for Training
+1. Epochs
+2. Batch size
+3. Learning Rate
+4. Gradient Accumulation - speed up the training
+5. Optimizer 
