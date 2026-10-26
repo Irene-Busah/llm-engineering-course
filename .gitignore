@@ -1,3 +1,5 @@
 .env
-projects/conversational-atlas/podcastindex_feeds.db
+projects/opportunity-finder/data/
 deep_neural_network.pth
+ideas.md
+

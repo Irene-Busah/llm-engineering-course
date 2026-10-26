@@ -165,3 +165,26 @@ P.S: There are base models, chat/instruct variant models and reasoning models. T
 3. Learning Rate
 4. Gradient Accumulation - speed up the training
 5. Optimizer 
+
+
+### Token Prediction & Cross Entropy
+1. The model output doesn't simply predict the next token
+2. Rather, it outputs the probabilities of all possible next tokens
+3. During inference, you can pick the token with highest probability, or sample from possible next tokens.
+
+### The Loss Function
+1. The approach for calculating loss is quite simple:
+    - Just ask: what probability did the model assign to the token that actually was the correct next token?
+    - In practice, we then take the log of the probability and times by -1
+    - So 0 means we were 100% confident of the right result; higher numbers means lower confidence
+    
+2. This is called **Cross-Entropy Loss**
+
+
+
+## Introduction to Agentic AI & Serverless Deployment on Modal
+AI systems that can do work for you independently - Sam Altman
+
+AI systems where an LLM controls the workflow
+
+An Agent runs Tools in a loop to achieve a goal

@@ -1,0 +1,8 @@
+# Opportunity Finder: Python 3.10+
+# Install with: pip install -r requirements.txt
+
+# fetch.py: calls the Hacker News API
+requests
+
+# schema.py: data models and validation (also used for LLM structured output later)
+pydantic
