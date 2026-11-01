@@ -188,3 +188,20 @@ AI systems that can do work for you independently - Sam Altman
 AI systems where an LLM controls the workflow
 
 An Agent runs Tools in a loop to achieve a goal
+
+
+### Structured Outputs
+1. You define a Python Class as a subclass of Pydantic BaseModel
+2. The model outputs an instance of this class
+
+**How it work:** The Pydantic class is used to generate a JSON Schema. OpenAI includes the schema in the system prompt: you must respond with JSON according to this schema. OpenAI client library creates an instance of the Pydantic class and populates with the JSON.
+
+
+### The Hallmarks of an Agentic AI Solution
+1. Breaking a larger problem into smaller steps carried out by individual processes/models
+2. Using tools/function calling/structured outputs
+3. An agent enivironment in which agents can collaborate
+4. A planning agent that coordinates activities
+5. Autonomy & Memory - existing beyond a chat with a human
+
+
