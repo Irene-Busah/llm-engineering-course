@@ -50,4 +50,21 @@ dependencies = [
     "langchain-experimental>=0.0.42",
     "groq>=0.33.0",
     "xgboost>=3.1.1",
+    "dash>=4.5.0",
+    "pypdf>=7.0.0",
+    "python-docx>=1.2.0",
+    "email-validator>=2.3.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["projects/opportunity-finder"]
+testpaths = ["projects/opportunity-finder/tests"]
+
+filterwarnings = [
+    "ignore::pytest.PytestRemovedIn10Warning"
 ]

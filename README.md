@@ -205,3 +205,11 @@ An Agent runs Tools in a loop to achieve a goal
 5. Autonomy & Memory - existing beyond a chat with a human
 
 
+### Anatomy of an Agent
+1. The Model - LLM Core
+2. Think - Planning & Reasoning
+3. Trace so far - Memory
+4. Act - Tools
+5. Observation - Environment
+
+

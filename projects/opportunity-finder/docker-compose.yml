@@ -1,0 +1,177 @@
+
+services:
+
+  # --------------------------------
+  # FastAPI backend
+  # --------------------------------
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: opportunity-finder-api
+
+    command: >
+      uvicorn api:app
+      --host 0.0.0.0
+      --port 8000
+
+    env_file:
+      - .env
+
+    environment:
+      CHROMA_HOST: chromadb
+      CHROMA_PORT: 8001
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./data:/app/data
+
+    depends_on:
+      chromadb:
+        condition: service_healthy
+
+    restart: unless-stopped
+
+
+  # --------------------------------
+  # ChromaDB vector database
+  # --------------------------------
+  chromadb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: opportunity-finder-chromadb
+
+    command:
+      - chroma
+      - run
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8001"
+      - --path
+      - /app/chroma_db
+
+    volumes:
+      - ./chroma_db:/app/chroma_db
+
+    expose:
+      - "8001"
+
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import socket; s=socket.create_connection(('127.0.0.1', 8001), 2); s.close()"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    restart: unless-stopped
+
+
+  # --------------------------------
+  # Prefect orchestration server
+  # --------------------------------
+  prefect-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: opportunity-finder-prefect
+
+    command:
+      - prefect
+      - server
+      - start
+      - --host
+      - 0.0.0.0
+
+    environment:
+      PREFECT_SERVER_API_HOST: 0.0.0.0
+
+    ports:
+      - "4200:4200"
+
+    volumes:
+      - prefect_data:/root/.prefect
+
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import socket; s=socket.create_connection(('127.0.0.1', 4200), 2); s.close()"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+    restart: unless-stopped
+
+
+  # --------------------------------
+  # Scheduled opportunity pipeline
+  # --------------------------------
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: opportunity-finder-pipeline
+
+    command:
+      - python
+      - -m
+      - orchestration.opportunity_pipeline
+      - --serve
+
+    env_file:
+      - .env
+
+    environment:
+      PREFECT_API_URL: http://prefect-server:4200/api
+      CHROMA_HOST: chromadb
+      CHROMA_PORT: 8001
+
+    volumes:
+      - ./data:/app/data
+
+    depends_on:
+      prefect-server:
+        condition: service_healthy
+      chromadb:
+        condition: service_healthy
+
+    restart: unless-stopped
+
+
+  # --------------------------------
+  # React frontend
+  # --------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
+
+    container_name: opportunity-finder-frontend
+
+    ports:
+      - "5173:80"
+
+    depends_on:
+      - api
+
+    restart: unless-stopped
+
+
+volumes:
+  chroma_data:
+  prefect_data:
