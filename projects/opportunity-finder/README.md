@@ -350,57 +350,9 @@ The application creates or updates local persistence and vector-store data as it
 - **Port already in use:** stop the process already using the port or configure the service to use another port, then update the corresponding frontend/API setting.
 
 
-## 14. Upcoming workflow
-
-> **Status: Planned — not started.** The phases below describe the next stages of development. They are included as the intended workflow, not as features that are already implemented.
-
-The next stages will build on the working proof of concept in a deliberate order: first improve the quality and trustworthiness of recommendations, then add job-search workspace features, strengthen the engineering foundations, and finally expand the product.
-
-### Phase 1 — Product quality
-
-**Goal:** Make sure the recommendations are trustworthy and useful.
-
-1. **Matching explanations:** Show users why an opportunity is confirmed or potential, including matching skills, missing qualifications, and possible concerns.
-2. **Matching evaluation:** Build a small manually reviewed dataset to measure whether the top recommendations are actually relevant.
-3. **Duplicate detection:** Ensure the same opportunity is not presented multiple times, even if collected from different posts.
-4. **Opportunity freshness:** Make expired opportunities clearly identifiable and prevent them from appearing as active recommendations.
-
-### Phase 2 — User functionality
-
-**Goal:** Turn the recommendation dashboard into a useful job-search workspace.
-
-1. **Save opportunities:** Let users bookmark interesting roles.
-2. **Application tracking:** Track saved, applied, interviewing, rejected, and offered opportunities.
-3. **Match feedback:** Let users indicate whether a recommendation is relevant. Use this feedback to improve future matching.
-4. **Profile refinement:** Allow users to update skills, experience, preferences, and resumes.
-
-### Phase 3 — Engineering maturity
-
-**Goal:** Make the system maintainable, observable, and scalable.
-
-1. **Automated tests:** Add unit tests for extraction, retrieval, matching, and candidate services, along with integration tests for API endpoints.
-2. **Observability:** Add structured logging, pipeline execution metrics, extraction-failure tracking, API error tracking, and latency monitoring.
-3. **Data reliability:** Introduce database migrations, retry handling, idempotency, and recovery from failed pipeline runs.
-4. **Security:** Add authentication and authorization, secure resume storage, upload validation, and protection of candidate information.
-
-### Phase 4 — Expansion
-
-**Goal:** Increase the value and reach of the product.
-
-1. **More sources:** Add RSS feeds, company career pages, job-alert emails, and other permitted sources.
-2. **Notifications:** Notify users by email or through other channels when relevant opportunities are discovered.
-3. **Deployment:** Deploy the API, frontend, database, and scheduled pipeline.
-4. **Multi-user support:** Support multiple candidates with isolated profiles, preferences, and application histories.
-
-### Planned implementation order
-
-The intended order is Phase 1 → Phase 2 → Phase 3 → Phase 4. This sequence prioritizes recommendation quality before adding more user-facing functionality, scaling the system, or expanding its sources.
-
-These phases are a forward-looking plan. No work in this roadmap should be considered started or completed until it is implemented and verified.
-
 ---
 
-## 15. Open decisions
+## 14. Open decisions
 
 - Which LLM to use for extraction (hosted API vs open-source via Hugging Face), decided at Step 4 by comparing both on the labeled set.
 - Which embedding model to use for matching, decided at Step 5 with the tokenizer's length limits in mind.
@@ -408,7 +360,7 @@ These phases are a forward-looking plan. No work in this roadmap should be consi
 
 ---
 
-## 16. The Picture
+## 15. The Picture
 ## Architecture
 
 ```mermaid
